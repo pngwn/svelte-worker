@@ -1,4 +1,4 @@
-import { basename, dirname, resolve } from "path";
+import { basename, dirname } from "path";
 
 import compiler from "svelte/compiler";
 import { rollup } from "rollup";
@@ -66,7 +66,6 @@ export function shirker(output_dir) {
 		async markup({ content, filename }) {
 			let _content = content;
 			const name = basename(filename, ".svelte");
-			const dir = dirname(filename);
 			const { instance } = compiler.parse(content);
 
 			// find the worker labels
